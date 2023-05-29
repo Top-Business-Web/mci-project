@@ -41,6 +41,35 @@
         {{--    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(21, 23, 28, 0.4)), url({{asset('new-assets/banner-slide04.jpg')}});--}}
         {{--}--}}
 
+          .menu1{
+            box-shadow: 0px 0px 10px gainsboro;
+            position: absolute;
+            right: 0px;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            width: 90px;
+            min-height: 60px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .menu1.show{
+            display: block;
+        }
+        .main-header__nav{
+            display: flex;
+        }
+
+        @media only screen and (max-width: 920px){
+
+            .menu1{
+                right: 67px;
+            }
+        }
+
+
+
 
     </style>
 
@@ -55,6 +84,7 @@
             }
         </style>
     @endif
+
 </head>
 
 <body>
@@ -79,6 +109,20 @@
             <a href="{{ route('contact') }}" class="main-header__nav--item">@lang('site.contact')</a>
             <a href="{{ route('stock') }}" class="main-header__nav--item">@lang('site.stock')</a>
             <a href="{{ route('clients') }}" class="main-header__nav--item">@lang('site.Our Clients')</a>
+            <div class="main-header__nav--item dropdown" style="position: relative; cursor: pointer;">language
+                <ul class="menu1">
+
+
+                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li>
+                            <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                               href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                {{ $properties['native'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
 {{--            <a class="dropdown-toggle main-header__nav--item" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
 {{--                languages--}}
 {{--            </a>--}}
@@ -315,8 +359,19 @@
     <p><a href="https://goo.gl/koeeaJ">How to enable JavaScript?</a></p>
 </noscript>
 
+<script src="{{asset('new-assets/new-carousel/js/jquery-1.10.1.min.js')}}"></script>
 
-{{--<script src="{{asset('assets/bootstrap/js/all.min.js')}}"></script>--}}
+<script>
+
+    $(document).ready(function(){
+
+        // jQuery methods go here...
+
+        $('.dropdown').click(function(){
+            $('.menu1').toggleClass('show');
+        });
+    });
+</script>
 {{--<script src="{{asset('assets/bootstrap/js/bootstrap.bundle.min.js')}}"></script>--}}
 </body>
 
