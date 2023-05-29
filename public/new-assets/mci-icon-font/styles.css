@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "mci-website";
+  src:url("fonts/mci-website.eot");
+  src:url("fonts/mci-website.eot?#iefix") format("embedded-opentype"),
+    url("fonts/mci-website.woff") format("woff"),
+    url("fonts/mci-website.ttf") format("truetype"),
+    url("fonts/mci-website.svg#mci-website") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "mci-website" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "mci-website" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-right:before {
+  content: "\61";
+}
+.icon-left:before {
+  content: "\62";
+}
+.icon-person:before {
+  content: "\65";
+}
+.icon-fax:before {
+  content: "\67";
+}
+.icon-message:before {
+  content: "\69";
+}
+.icon-mail-solid:before {
+  content: "\6a";
+}
+.icon-social-twitter:before {
+  content: "\6c";
+}
+.icon-social-linkedin:before {
+  content: "\6d";
+}
+.icon-social-facebook:before {
+  content: "\63";
+}
+.icon-long-arrow:before {
+  content: "\64";
+}
+.icon-at:before {
+  content: "\6e";
+}
+.icon-phone:before {
+  content: "\6f";
+}
+.icon-menu:before {
+  content: "\66";
+}
+.icon-close:before {
+  content: "\68";
+}
